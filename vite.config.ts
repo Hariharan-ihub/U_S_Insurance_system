@@ -5,16 +5,12 @@ import path from 'path';
 import dotenv from 'dotenv';
 import { MongoClient } from 'mongodb';
 import crypto from 'crypto';
-import dns from 'node:dns';
-
-// Force Node.js process to use Google DNS to bypass Windows DNS SRV resolver bugs
-dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 // Load environment variables from .env
 dotenv.config();
 
 const proxyMode = process.env.VITE_PROXY_MODE || 'local';
-const mongoUrl = process.env.MONGO_URL || 'mongodb+srv://hariharansihub_db_user:Smarthari1432@organizationatlascluste.y63pnxl.mongodb.net/';
+const mongoUrl = process.env.MONGO_URL || 'mongodb://hariharansihub_db_user:Smarthari1432@ac-5m8jrqw-shard-00-00.y63pnxl.mongodb.net:27017,ac-5m8jrqw-shard-00-01.y63pnxl.mongodb.net:27017,ac-5m8jrqw-shard-00-02.y63pnxl.mongodb.net:27017/insurance_records?replicaSet=atlas-yje7hy-shard-0&ssl=true&authSource=admin';
 const dbName = (process.env.DATABASE_NAME || 'insurance_records').trim();
 const jwtSecret = process.env.JWT_SECRET || 'fallback_secret';
 const integrationToken = process.env.VITE_INTEGRATION_TOKEN || jwtSecret;
