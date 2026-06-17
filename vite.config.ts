@@ -5,6 +5,10 @@ import path from 'path';
 import dotenv from 'dotenv';
 import { MongoClient } from 'mongodb';
 import crypto from 'crypto';
+import dns from 'node:dns';
+
+// Force Node.js process to use Google DNS to bypass Windows DNS SRV resolver bugs
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 // Load environment variables from .env
 dotenv.config();
